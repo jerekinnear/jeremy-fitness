@@ -1,10 +1,10 @@
-const CACHE_NAME = "jeremy-fitness-v2";
+const CACHE_NAME = "jeremy-fitness-v3";
 const URLS = [
-  "/jeremy-fitness.html",
-  "/manifest.json",
-  "/icon-192.png",
-  "/icon-512.png",
-  "/apple-touch-icon.png"
+  "jeremy-fitness.html",
+  "manifest.json",
+  "icon-192.png",
+  "icon-512.png",
+  "apple-touch-icon.png"
 ];
 
 self.addEventListener("install", function(e) {
@@ -32,7 +32,7 @@ self.addEventListener("fetch", function(e) {
   e.respondWith(
     caches.match(e.request).then(function(cached) {
       return cached || fetch(e.request).catch(function() {
-        return caches.match("/jeremy-fitness.html");
+        return caches.match("jeremy-fitness.html");
       });
     })
   );
